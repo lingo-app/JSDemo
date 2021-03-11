@@ -1,0 +1,8 @@
+
+# Package manager locks
+yarn.lock
+node_modules
+
+.DS_STORE
+
+# apiToken.js
