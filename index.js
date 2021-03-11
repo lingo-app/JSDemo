@@ -1,8 +1,8 @@
 const { default: lingo, AssetType, ItemType, LingoError } = require("@lingo-app/node")
 
-const {spaceId}
+const auth = require("./apiToken")
 // Add your spaceId and API token
-lingo.setup(2265, "NbujukaezEMN09G31MN39Ut3oBou00QLCQLoRjo1Tcg")
+lingo.setup(auth.spaceId, auth.apiToken)
 
 lingo.baseURL = "http://local.lingoapp.com:9000/1";
 
