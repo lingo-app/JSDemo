@@ -2,7 +2,9 @@
 # Package manager locks
 yarn.lock
 node_modules
+yarn-error.log
 
 .DS_STORE
 
-apiToken.js
+apiToken.*
+!.apiToken.base.ts

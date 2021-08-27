@@ -2,18 +2,22 @@
   "name": "lingo-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index",
-    "postinstall": "cp -n ./.apiToken.base.js ./apiToken.js || true"
+    "start": "ts-node ./index",
+    "postinstall": "cp -n ./.apiToken.base.ts ./apiToken.ts || true"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lingo-app/node": "^1.0.0"
+    "@lingo-app/node": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.3",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
   }
 }

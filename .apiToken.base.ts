@@ -4,8 +4,7 @@
 const spaceId = 0
 const apiToken = "<apitoken>"
 
-
-module.exports = {
+export default {
     spaceId,
     apiToken
 }
