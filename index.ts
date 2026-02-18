@@ -16,7 +16,7 @@ async function runScript() {
         // Print the names of all kits
         console.log(kits.map(k => `${k.shortId} - ${k.name}`))
 
-        const kitId = kits[0].kitId
+        const kitId = kits[0].kitUuid
         const kit = await lingo.fetchKit(kitId)
         const kitOutline = await lingo.fetchKitOutline(kitId)
         console.log(kit)
