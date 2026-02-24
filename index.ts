@@ -1,4 +1,4 @@
-import lingo, { AssetType, ItemType, LingoError } from "@lingo-app/node";
+import lingo, { Asset, AssetType, Item, ItemType, LingoError } from "@lingo-app/node";
 
 import auth from "./apiToken"
 // Add your spaceId and API token
@@ -16,13 +16,13 @@ async function runScript() {
         // Print the names of all kits
         console.log(kits.map(k => `${k.shortId} - ${k.name}`))
 
-        const kitId = kits[0].kitId
+        const kitId = kits[0].kitUuid
         const kit = await lingo.fetchKit(kitId)
         const kitOutline = await lingo.fetchKitOutline(kitId)
         console.log(kit)
         console.log(kitOutline.sections)
     } else {
-        console.log("You don't have any kits. You can create one here using")
+        console.log("You don't have any kits. Check the docs to learn how to create  one.")
 
         // Creating a kit
         // WARNING: Any content created here will be available to other members of your space
@@ -34,6 +34,12 @@ async function runScript() {
     // Search
     let results = await lingo.search().limit(5).ofType(AssetType.SVG).fetch()
     console.log(`There are ${results.total} SVGs in your space`)
+
+    if (results.results.length > 0) {
+        let firstItem = results.results.find(r => r.type === "item")?.object as Item;
+        const fileData = await lingo.downloadAsset(firstItem.assetUuid as string)
+        console.log(`Downloaded file - ${fileData.size} bytes`)
+    }
 }
 
 runScript()
