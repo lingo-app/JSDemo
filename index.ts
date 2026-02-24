@@ -1,4 +1,4 @@
-import lingo, { Asset, AssetType, ItemType, LingoError } from "@lingo-app/node";
+import lingo, { Asset, AssetType, Item, ItemType, LingoError } from "@lingo-app/node";
 
 import auth from "./apiToken"
 // Add your spaceId and API token
@@ -36,8 +36,8 @@ async function runScript() {
     console.log(`There are ${results.total} SVGs in your space`)
 
     if (results.results.length > 0) {
-        const asset = results.results[0].object as Asset
-        const fileData = await lingo.downloadAsset(asset.assetUuid)
+        let firstItem = results.results.find(r => r.type === "item")?.object as Item;
+        const fileData = await lingo.downloadAsset(firstItem.assetUuid as string)
         console.log(`Downloaded file - ${fileData.size} bytes`)
     }
 }
