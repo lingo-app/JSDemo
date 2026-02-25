@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@lingo-app/node": "^3.1.0"
+    "@lingo-app/node": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^24.10.13",
